@@ -73,6 +73,21 @@ public class JavafxRobotAdapterTest {
     Point2D regionPoint;
     Point2D textFieldPoint;
     Point2D textAreaPoint;
+    public String        BASIC_LATIN_UPPERCASE_GLYPHS = "@ABCDEFGHIJKLMNO";
+    public List<Integer> BASIC_LATIN_UPPERCASE_CODES  = closedRangeToInts(0x0040, 0x004f);
+
+    public String        BASIC_LATIN_LOWERCASE_GLYPHS = "`abcdefghijklmno";
+    public List<Integer> BASIC_LATIN_LOWERCASE_CODES  = closedRangeToInts(0x0060, 0x006f);
+
+    public String        LATIN_1_SUPPLEMENT_UPPERCASE_GLYPHS = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ";
+    public List<Integer> LATIN_1_SUPPLEMENT_UPPERCASE_CODES  = closedRangeToInts(0x00c0, 0x00cf);
+
+    public String        LATIN_1_SUPPLEMENT_LOWERCASE_GLYPHS = "àáâãäåæçèéêëìíîï";
+    public List<Integer> LATIN_1_SUPPLEMENT_LOWERCASE_CODES  = closedRangeToInts(0x00e0, 0x00ef);
+
+    public char[]        LATIN_EXTENDED_A_GLYPHS = new char[] {'Ā', 'ā', 'Ă', 'ă', 'Ą', 'ą', 'Ć', 'ć', 'Ĉ', 'ĉ',
+        'Ċ', 'ċ', 'Č', 'č', 'Ď', 'ď'};
+    public List<Integer> LATIN_EXTENDED_A_CODES  = closedRangeToInts(0x0100, 0x010f);
 
     @BeforeClass
     public static void setupSpec() throws Exception {
@@ -304,28 +319,6 @@ public class JavafxRobotAdapterTest {
 
         assertThat(captureRegionLatch.await(5, TimeUnit.SECONDS), is(true));
     }
-
-    // BASIC LATIN (U+0000 TO U+007F).
-
-    public String        BASIC_LATIN_UPPERCASE_GLYPHS = "@ABCDEFGHIJKLMNO";
-    public List<Integer> BASIC_LATIN_UPPERCASE_CODES  = closedRangeToInts(0x0040, 0x004f);
-
-    public String        BASIC_LATIN_LOWERCASE_GLYPHS = "`abcdefghijklmno";
-    public List<Integer> BASIC_LATIN_LOWERCASE_CODES  = closedRangeToInts(0x0060, 0x006f);
-
-    // LATIN-1 SUPPLEMENT (U+0080 TO U+00FF).
-
-    public String        LATIN_1_SUPPLEMENT_UPPERCASE_GLYPHS = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ";
-    public List<Integer> LATIN_1_SUPPLEMENT_UPPERCASE_CODES  = closedRangeToInts(0x00c0, 0x00cf);
-
-    public String        LATIN_1_SUPPLEMENT_LOWERCASE_GLYPHS = "àáâãäåæçèéêëìíîï";
-    public List<Integer> LATIN_1_SUPPLEMENT_LOWERCASE_CODES  = closedRangeToInts(0x00e0, 0x00ef);
-
-    // LATIN EXTENDED-A (U+0100 TO U+017F).
-
-    public char[]        LATIN_EXTENDED_A_GLYPHS = new char[] {'Ā', 'ā', 'Ă', 'ă', 'Ą', 'ą', 'Ć', 'ć', 'Ĉ', 'ĉ',
-        'Ċ', 'ċ', 'Č', 'č', 'Ď', 'ď'};
-    public List<Integer> LATIN_EXTENDED_A_CODES  = closedRangeToInts(0x0100, 0x010f);
 
     private List<Integer> closedRangeToInts(int lower, int upper) {
         return IntStream.range(lower, upper + 1).boxed().collect(Collectors.toList());
