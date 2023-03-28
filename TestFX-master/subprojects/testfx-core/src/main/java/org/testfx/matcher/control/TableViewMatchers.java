@@ -273,7 +273,7 @@ public class TableViewMatchers {
             return false;
         }
         return Objects.equals(item, value) || Objects.equals(item.toString(), value) ||
-                (value.toString() != null && Objects.equals(item.toString(), value.toString()));
+                value.toString() != null && Objects.equals(item.toString(), value.toString());
     }
 
 }

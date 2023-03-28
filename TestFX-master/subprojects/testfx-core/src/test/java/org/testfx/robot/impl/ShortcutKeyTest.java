@@ -66,10 +66,10 @@ public class ShortcutKeyTest extends FxRobot {
             field.setOnKeyPressed(e -> {
                 // System.out.println(e.getCode().getName() + " " + e.isShortcutDown());
                 // On macOS, depending on the system either KeyCode.META or KeyCode.COMMAND is reported see #589
-                if (((e.getCode() == KeyCode.CONTROL)  ||
+                if ((e.getCode() == KeyCode.CONTROL)  ||
                         (e.getCode() == KeyCode.META) ||
                         (e.getCode() == KeyCode.COMMAND)
-                        ) && e.isShortcutDown()) {
+                        ) && e.isShortcutDown() {
                     field.setText(pressedText);
                 } else {
                     field.setText(e.getCode().toString());
@@ -79,7 +79,7 @@ public class ShortcutKeyTest extends FxRobot {
             field.setOnKeyReleased(e -> {
                 // System.out.println(e.getCode().getName() + " " + e.isShortcutDown());
                 // On macOS, depending on the system either KeyCode.META or KeyCode.COMMAND is reported see #589
-                if (((e.getCode() == KeyCode.CONTROL)  ||
+                if ((e.getCode() == KeyCode.CONTROL)  ||
                         (e.getCode() == KeyCode.META) ||
                         (e.getCode() == KeyCode.COMMAND)
                         ) && !e.isShortcutDown()) {
