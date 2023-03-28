@@ -124,16 +124,4 @@ public class CaptureSupportImpl implements CaptureSupport {
         ImageIO.write(bufferedImage, PNG_IMAGE_FORMAT, outputStream);
     }
 
-    private Image blendImages(Image image0,
-                              Image image1,
-                              BlendMode blendMode,
-                              Pos alignment) {
-        StackPane stackPane = new StackPane();
-        stackPane.setAlignment(alignment);
-        stackPane.setBlendMode(blendMode);
-        stackPane.getChildren().add(new ImageView(image0));
-        stackPane.getChildren().add(new ImageView(image1));
-        return captureNode(stackPane);
-    }
-
 }

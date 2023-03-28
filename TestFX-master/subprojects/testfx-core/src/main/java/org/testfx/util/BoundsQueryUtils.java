@@ -110,7 +110,6 @@ public final class BoundsQueryUtils {
      */
     public static Bounds boundsOnScreen(Node node) {
         Bounds boundsInScene = nodeBoundsInScene(node);
-        // Bounds visibleBoundsInScene = limitToVisibleBounds(boundsInScene, node.getScene());
         return boundsOnScreen(boundsInScene, node.getScene());
     }
 
@@ -154,15 +153,6 @@ public final class BoundsQueryUtils {
                     bounds.getDepth());
         }
         return bounds;
-    }
-
-    private static Bounds limitToVisibleBounds(Bounds boundsInScene, Scene scene) {
-        Bounds sceneBounds = makeSceneBounds(scene);
-        Bounds visibleBounds = intersectBounds(boundsInScene, sceneBounds);
-        if (!areBoundsVisible(visibleBounds)) {
-            throw new RuntimeException("bounds are not visible in Scene.");
-        }
-        return visibleBounds;
     }
 
     private static Bounds makeSceneBounds(Scene scene) {

@@ -122,11 +122,6 @@ public class ToolkitServiceImplTest {
         public void stop() {
             printCurrentThreadName("Application#stop()");
         }
-
-        private String getApplicationParameter(String parameterName) {
-            Map<String, String> applicationParameters = getParameters().getNamed();
-            return applicationParameters.get(parameterName);
-        }
     }
 
     public static class FixtureScene extends Scene {
