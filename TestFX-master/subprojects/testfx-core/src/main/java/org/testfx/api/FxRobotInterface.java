@@ -590,14 +590,6 @@ public interface FxRobotInterface {
     FxRobotInterface clickOn(Bounds bounds, Motion motion, MouseButton... buttons);
 
     /**
-     * Convenience method: Moves mouse directly to the point returned from {@link #point(Node)}, clicks the given
-     * buttons, and returns itself for method chaining.
-     */
-    default FxRobotInterface clickOn(Node node, MouseButton... buttons) {
-        return clickOn(node, Motion.DEFAULT, buttons);
-    }
-
-    /**
      * Convenience method: Moves mouse using the given {@code motion} (see: {@link Motion} to the point returned from
      * {@link #point(Node)}, clicks the given buttons, and returns itself for method chaining.
      */
@@ -674,11 +666,6 @@ public interface FxRobotInterface {
     <T extends Node> FxRobotInterface clickOn(Predicate<T> predicate, Motion motion, MouseButton... buttons);
 
     /**
-     * Convenience method: Clicks the {@link MouseButton#SECONDARY} button and returns itself for method chaining.
-     */
-    FxRobotInterface rightClickOn();
-
-    /**
      * Convenience method: Moves mouse directly to the point returned from {@link PointQuery#query()}, clicks
      * the {@link MouseButton#SECONDARY} button and returns itself for method chaining.
      */
@@ -735,20 +722,6 @@ public interface FxRobotInterface {
      * {@link #point(Bounds)}, clicks the {@link MouseButton#SECONDARY} button, and returns itself for method chaining.
      */
     FxRobotInterface rightClickOn(Bounds bounds, Motion motion);
-
-    /**
-     * Convenience method: Moves mouse directly to the point returned from {@link #point(Node)}, clicks
-     * the {@link MouseButton#SECONDARY} button, and returns itself for method chaining.
-     */
-    default FxRobotInterface rightClickOn(Node node) {
-        return rightClickOn(node, Motion.DEFAULT);
-    }
-
-    /**
-     * Convenience method: Moves mouse using the given {@code motion} (see: {@link Motion} to the point returned from
-     * {@link #point(Node)}, clicks the {@link MouseButton#SECONDARY} button, and returns itself for method chaining.
-     */
-    FxRobotInterface rightClickOn(Node node, Motion motion);
 
     /**
      * Convenience method: Moves mouse directly to the point returned from {@link #point(Scene)}, clicks
@@ -1127,13 +1100,6 @@ public interface FxRobotInterface {
     FxRobotInterface moveTo(PointQuery pointQuery, Motion motion);
 
     /**
-     * Calls {@link org.testfx.robot.MoveRobot#moveBy(double, double)} and returns itself for more method chaining.
-     */
-    default FxRobotInterface moveBy(double x, double y) {
-        return moveBy(x, y, Motion.DEFAULT);
-    }
-
-    /**
      * Calls {@link org.testfx.robot.MoveRobot#moveBy(double, double, Motion)} and returns itself for more method
      * chaining.
      */
@@ -1180,14 +1146,6 @@ public interface FxRobotInterface {
      * {@link #point(Bounds)} and returns itself for method chaining.
      */
     FxRobotInterface moveTo(Bounds bounds, Motion motion);
-
-    /**
-     * Convenience method: Moves mouse directly to the center of the given {@code Node} and returns itself
-     * for method chaining.
-     */
-    default FxRobotInterface moveTo(Node node) {
-        return moveTo(node, Motion.DEFAULT);
-    }
 
     /**
      * Convenience method: Moves mouse using the given {@code motion} (see: {@link Motion} to the center of the
@@ -1283,11 +1241,6 @@ public interface FxRobotInterface {
     <T extends Node> FxRobotInterface moveTo(Predicate<T> predicate, Motion motion);
 
     /**
-     * Calls {@link org.testfx.robot.ScrollRobot#scroll(int)} and returns itself for more method chaining.
-     */
-    FxRobotInterface scroll(int amount);
-
-    /**
      * Calls {@link org.testfx.robot.ScrollRobot#scroll(int, VerticalDirection)} and returns itself for more method
      * chaining.
      */
@@ -1323,30 +1276,14 @@ public interface FxRobotInterface {
     FxRobotInterface push(KeyCodeCombination combination);
 
     /**
-     * Calls {@link org.testfx.robot.TypeRobot#type(KeyCode...)} and returns itself for more method chaining.
-     */
-    FxRobotInterface type(KeyCode... keys);
-
-    /**
      * Calls {@link org.testfx.robot.TypeRobot#type(KeyCode, int)} and returns itself for more method chaining.
      */
     FxRobotInterface type(KeyCode key, int times);
 
     /**
-     * Convenience method: Calls {@link org.testfx.robot.TypeRobot#type(KeyCode, int)} with {@link KeyCode#BACK_SPACE}
-     * and returns itself for more method chaining.
-     */
-    FxRobotInterface eraseText(int characters);
-
-    /**
      * Calls {@link org.testfx.robot.WriteRobot#write(char)} and returns itself for more method chaining.
      */
     FxRobotInterface write(char character);
-
-    /**
-     * Calls {@link org.testfx.robot.WriteRobot#write(String)} and returns itself for more method chaining.
-     */
-    FxRobotInterface write(String text);
 
     /**
      * Calls {@link org.testfx.robot.WriteRobot#write(String, int)} and returns itself for more method chaining.
