@@ -36,6 +36,8 @@ import javafx.scene.paint.Color;
 
 import org.testfx.service.adapter.RobotAdapter;
 
+import org.testfx.NoValidSwitchCaseException;
+
 import static org.testfx.util.WaitForAsyncUtils.asyncFx;
 
 /**
@@ -215,6 +217,8 @@ public class JavafxRobotAdapter implements RobotAdapter<JavafxRobotAdapter> {
                 case SECONDARY:
                     isButton3Pressed = pressed;
                     break;
+                default:
+                    throw new NoValidSwitchCaseException("No valid case in switch statement.");
             }
             if (pressed) {
                 lastButtonPressed = button;

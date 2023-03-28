@@ -29,6 +29,7 @@ import org.testfx.robot.MouseRobot;
 import org.testfx.robot.MoveRobot;
 import org.testfx.robot.SleepRobot;
 import org.testfx.service.query.PointQuery;
+import org.testfx.NoValidSwitchCaseException;
 
 public class MoveRobotImpl implements MoveRobot {
 
@@ -130,6 +131,8 @@ public class MoveRobotImpl implements MoveRobot {
                         .collect(Collectors.toList());
                 break;
             }
+            default:
+                    throw new NoValidSwitchCaseException("No valid case in switch statement.");
         }
 
         for (int i = 0; i < path.size() - 1; i++) {
