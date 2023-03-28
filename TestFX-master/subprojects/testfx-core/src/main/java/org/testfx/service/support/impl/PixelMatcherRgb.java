@@ -23,7 +23,7 @@ import javafx.scene.paint.Color;
 import org.testfx.service.support.PixelMatcher;
 import org.testfx.util.ColorUtils;
 
-public class PixelMatcherRgb extends PixelMatcherBase implements PixelMatcher {
+public class PixelMatcherRgb extends PixelMatcherBase{
 
     private final double colorBlendFactor;
     private final double minColorDistSq;
