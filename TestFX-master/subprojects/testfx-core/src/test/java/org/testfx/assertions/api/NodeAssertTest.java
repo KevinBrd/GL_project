@@ -67,7 +67,7 @@ public class NodeAssertTest extends FxRobot {
     }
 
     @Test
-    public void doesNotHaveText_with_button_fails() throws Exception {
+    public void doesNotHaveTextWithButtonFails() throws Exception {
         // given:
         Button button = FxToolkit.setupFixture(() -> new Button("foo"));
 
@@ -148,7 +148,7 @@ public class NodeAssertTest extends FxRobot {
     }
 
     @Test
-    public void hasText_filters_nodes() throws Exception {
+    public void hasTextFiltersNodes() throws Exception {
         // given:
         List<Node> nodes =  FxToolkit.setupFixture(() -> {
             List<Node> temp = new ArrayList<>(3);

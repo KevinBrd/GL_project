@@ -136,7 +136,7 @@ public class NodeMatchersTest extends TestCaseBase {
     }
 
     @Test
-    public void hasText_filters_nodes() throws Exception {
+    public void hasTextFiltersNodes() throws Exception {
         // given:
         List<Node> nodes =  FxToolkit.setupFixture(() -> {
             List<Node> temp = new ArrayList<>(3);

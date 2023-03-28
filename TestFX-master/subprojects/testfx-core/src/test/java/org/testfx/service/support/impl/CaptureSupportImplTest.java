@@ -142,7 +142,7 @@ public class CaptureSupportImplTest extends FxRobot {
     }
 
     @Test
-    public void match_images_from_scene() throws IOException {
+    public void matchImagesFromScene() throws IOException {
         // given:
         interact(() -> primaryStage.getScene().lookup("#loginButton").requestFocus());
         Image image0 = capturer.captureNode(primaryStage.getScene().getRoot());
