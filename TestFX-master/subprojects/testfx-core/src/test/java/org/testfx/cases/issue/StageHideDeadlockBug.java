@@ -48,20 +48,4 @@ public class StageHideDeadlockBug extends TestCaseBase {
         //FxToolkit.setupStage((stage) -> stage.hide());
         Platform.runLater(() -> {}); // <-- BUG
     }
-
-    @Test
-    public void should_call_cleanup_once() {}
-
-    @Test
-    public void should_call_cleanup_twice() {}
-
-    @Test
-    public void should_call_cleanup_thrice() {}
-
-    @Test
-    public void should_call_cleanup_fourfold() {}
-
-    @Test
-    public void should_call_cleanup_five_times() {}
-
 }
