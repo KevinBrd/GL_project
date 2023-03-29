@@ -20,7 +20,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
-import org.testfx.service.support.PixelMatcher;
 import org.testfx.util.ColorUtils;
 
 public class PixelMatcherRgb extends PixelMatcherBase{
