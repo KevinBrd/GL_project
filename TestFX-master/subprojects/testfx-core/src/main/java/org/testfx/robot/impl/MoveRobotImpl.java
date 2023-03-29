@@ -132,7 +132,7 @@ public class MoveRobotImpl implements MoveRobot {
                 break;
             }
             default:
-                    throw new NoValidSwitchCaseException("No valid case in switch statement.");
+                throw new NoValidSwitchCaseException("No valid case in switch statement.");
         }
 
         for (int i = 0; i < path.size() - 1; i++) {

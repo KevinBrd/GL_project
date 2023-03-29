@@ -52,7 +52,7 @@ public class NodeMatchers {
      * Creates a matcher that matches all non-null {@link Node}s.
      */
     public static Matcher<Node> isNotNull() {
-        return baseMatcher("Node is not null", node -> (node != null));
+        return baseMatcher("Node is not null", node -> node != null);
     }
 
     /**
