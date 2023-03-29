@@ -45,7 +45,7 @@ class ApplicationLaunchSpec extends Specification {
     }
 
     void setup() throws Exception {
-        ApplicationSpec.launch(DemoApplication.class)
+        ApplicationSpec.launch(DemoApplication)
     }
 
     void cleanup() throws Exception {
