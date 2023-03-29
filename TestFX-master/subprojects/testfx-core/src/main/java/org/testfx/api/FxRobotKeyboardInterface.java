@@ -53,13 +53,38 @@ import org.testfx.util.WaitForAsyncUtils;
  * convenience methods, such as finding a given node, scene or window via a {@link PointQuery}, a {@link Predicate},
  * or a {@link Matcher}.
  */
-public interface FxRobotKeyboard {
+public interface FxRobotKeyboardInterface {
 
-    void write(String text);
+    /**
+     * Calls {@link org.testfx.robot.WriteRobot#write(String)} and returns itself for more method chaining.
+     */
+    FxRobotKeyboardInterface write(String text);
 
-    void eraseText(int charactersToDelete);
+    /**
+     * Calls {@link org.testfx.robot.WriteRobot#write(char)} and returns itself for more method chaining.
+     */
+    FxRobotKeyboardInterface write(char character);
 
-    void push(KeyCode... keyCodes);
+    /**
+     * Calls {@link org.testfx.robot.WriteRobot#write(String, int)} and returns itself for more method chaining.
+     */
+    FxRobotKeyboardInterface write(String text, int sleepMillis);
+
+    /**
+     * Convenience method: Calls {@link org.testfx.robot.TypeRobot#type(KeyCode, int)} with {@link KeyCode#BACK_SPACE}
+     * and returns itself for more method chaining.
+     */
+    FxRobotKeyboardInterface eraseText(int characters);
+
+    /**
+     * Calls {@link org.testfx.robot.TypeRobot#push(KeyCode...)} and returns itself for more method chaining.
+     */
+    FxRobotKeyboardInterface push(KeyCode... combination);
+
+    /**
+     * Calls {@link org.testfx.robot.TypeRobot#push(KeyCodeCombination)} and returns itself for more method chaining.
+     */
+    FxRobotKeyboardInterface push(KeyCodeCombination combination);
 
     //...
 
