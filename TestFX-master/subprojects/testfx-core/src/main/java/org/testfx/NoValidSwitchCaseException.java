@@ -1,7 +1,9 @@
-public class NoSwitchCaseValidException extends RuntimeException {
+package org.testfx;
+
+public class NoValidSwitchCaseException extends RuntimeException {
     private String error;
 
-    public NoSwitchCaseValidException(String error) {
+    public NoValidSwitchCaseException(String error) {
         this.error = error;
     }
 
