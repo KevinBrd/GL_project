@@ -37,18 +37,38 @@ public class PixelMatcherRgb extends PixelMatcherBase{
         minColorDistSq = maxColorDistSq * (minColorDistFactor * minColorDistFactor);
     }
 
+    /**
+    * Prend deux objets Color et renvoie un booléen indiquant si les couleurs sont suffisamment proches pour 
+    être considérées comme correspondantes.
+    * @param color0 Première couleur
+    * @param color1 Seconde couleur
+    * @return Boolean, true si les couleurs sont considérées comme correspondantes.
+    */
     @Override
     public boolean matchColors(Color color0, Color color1) {
         double colorDistSq = ColorUtils.calculateColorDistSq(color0, color1);
         return colorDistSq < minColorDistSq;
     }
 
+    /**
+    * Crée une image vide en fonction des dimensions de deux images données en entrée.
+    * @param image0 Première image
+    * @param image1 Seconde image
+    * @return Objet WritableImage
+    */
     @Override
     public WritableImage createEmptyMatchImage(Image image0,
                                                Image image1) {
         return new WritableImage((int) image0.getWidth(), (int) image1.getHeight());
     }
 
+    /**
+    * Prend deux couleurs en entrée et renvoie une nouvelle couleur
+    qui est un mélange de gris et de blanc en fonction de la différence entre les deux couleurs.
+    * @param color0 Première couleur
+    * @param color1 Seconde couleur
+    * @return Objet Couleur
+    */
     @Override
     public Color createMatchColor(Color color0, Color color1) {
         double gray = color0.grayscale().getRed();
@@ -56,6 +76,13 @@ public class PixelMatcherRgb extends PixelMatcherBase{
         return Color.gray(blendToWhite(gray, colorBlendFactor), opacity);
     }
 
+    /**
+    * Prend un niveau de gris et un facteur de mélange en entrée et renvoie
+    une valeur pondérée de gris qui est mélangée avec du blanc.
+    * @param gray Niveau de gris
+    * @param factor Facteur de mélange
+    * @return double, valeur pondérée de gris qui est mélangée avec du blanc
+    */
     private double blendToWhite(double gray, double factor) {
         return ((1.0 - factor) * gray) + factor;
     }
