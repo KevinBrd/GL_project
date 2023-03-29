@@ -7,14 +7,17 @@
 [![Maven Central](https://img.shields.io/maven-central/v/org.testfx/testfx-core.svg?label=maven&style=flat-square)](https://search.maven.org/#search|ga|1|org.testfx)
 [![Chat on Gitter](https://img.shields.io/gitter/room/testfx/testfx-core.svg?style=flat-square)](https://gitter.im/TestFX/TestFX)
 
-Simple and clean testing for JavaFX.
+## Presentation
 
-TestFX requires a minimum Java version of 8 (1.8).
+TestFX is an open-source testing framework for JavaFX applications. It provides an API for writing automated tests for JavaFX user interfaces, making it easy to test the functionality and behavior of JavaFX applications. With TestFX, you can write tests that simulate user interactions, such as clicking buttons, entering text, and verifying results.
+
+Note: JavaFX is a UI framework and library from the OpenJFX project, which allows Java developers to create graphical user interfaces for desktop applications, rich internet applications, and touch-based smartphone and tablet applications.
 
 ## Documentation
 
 * See the [Javadocs](https://testfx.github.io/TestFX/docs/javadoc/) for latest `master`.
 * See the changelog [CHANGES.md](https://github.com/TestFX/TestFX/blob/master/CHANGES.md) for latest released version.
+* TestFX requires a minimum Java version of 8 (1.8).
 
 ## Features
 
