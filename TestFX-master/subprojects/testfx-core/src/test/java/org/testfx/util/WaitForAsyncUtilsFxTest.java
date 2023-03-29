@@ -37,6 +37,8 @@ import static org.junit.Assert.fail;
 
 public class WaitForAsyncUtilsFxTest {
 
+    public static final int TIME_TO_WAIT = 50;
+
     @Rule
     public TestRule rule = RuleChain.outerRule(Timeout.millis(1000)).around(exception = ExpectedException.none());
     public ExpectedException exception;
@@ -82,7 +84,7 @@ public class WaitForAsyncUtilsFxTest {
             }
         }
         WaitForAsyncUtils.printException = true;
-        WaitForAsyncUtils.waitFor(50, MILLISECONDS, future);
+        WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future);
         waitForThreads(future);
     }
 
@@ -112,12 +114,12 @@ public class WaitForAsyncUtilsFxTest {
             throw e;
         }
         WaitForAsyncUtils.printException = true;
-        WaitForAsyncUtils.waitFor(50, MILLISECONDS, future);
+        WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future);
         waitForThreads(future);
     }
 
     void waitForException(Future<?> f) throws InterruptedException {
-        Thread.sleep(50);
+        Thread.sleep(TIME_TO_WAIT);
         assertTrue(f.isDone());
     }
 
@@ -130,7 +132,7 @@ public class WaitForAsyncUtilsFxTest {
             }
         }
         try {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
         }
         catch (Exception ignore) {
         }

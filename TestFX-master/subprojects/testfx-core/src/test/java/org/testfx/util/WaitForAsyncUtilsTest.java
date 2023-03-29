@@ -37,6 +37,8 @@ import static org.junit.Assert.fail;
 
 public class WaitForAsyncUtilsTest {
 
+    public static final int TIME_TO_WAIT = 50;
+
     @Rule
     public TestRule rule = Timeout.millis(10000);
 
@@ -55,7 +57,7 @@ public class WaitForAsyncUtilsTest {
     public void async_callable_with_sleep() throws Exception {
         // when:
         Future<String> future = WaitForAsyncUtils.async(() -> {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
             return "foo";
         });
 
@@ -82,7 +84,7 @@ public class WaitForAsyncUtilsTest {
         waitForException(future);
         assertThatThrownBy(() -> {
             WaitForAsyncUtils.checkException();
-            WaitForAsyncUtils.waitFor(50, MILLISECONDS, future);
+            WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future);
             waitForThreads(future);
         }).isExactlyInstanceOf(UnsupportedOperationException.class);
     }
@@ -148,7 +150,7 @@ public class WaitForAsyncUtilsTest {
             // when:
             Future<Void> future = WaitForAsyncUtils.async(callable);
             try {
-                WaitForAsyncUtils.waitFor(50, MILLISECONDS, future);
+                WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future);
                 fail("No exception thrown");
             }
             catch (Throwable exception) {
@@ -180,7 +182,7 @@ public class WaitForAsyncUtilsTest {
         Future<Void> future = WaitForAsyncUtils.async(() -> null);
 
         // then:
-        WaitForAsyncUtils.waitFor(50, MILLISECONDS, future);
+        WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future);
         waitForThreads(future);
     }
 
@@ -193,7 +195,7 @@ public class WaitForAsyncUtilsTest {
         });
 
         // then:
-        assertThatThrownBy(() -> WaitForAsyncUtils.waitFor(50, MILLISECONDS, future))
+        assertThatThrownBy(() -> WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future))
                 .isExactlyInstanceOf(TimeoutException.class);
         waitForThreads(future);
     }
@@ -209,7 +211,7 @@ public class WaitForAsyncUtilsTest {
             return null;
         });
         try {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
         }
         catch (Exception ignore) {
         }
@@ -224,7 +226,7 @@ public class WaitForAsyncUtilsTest {
         catch (Throwable ignore) {
         }
 
-        assertThatThrownBy(() -> WaitForAsyncUtils.waitFor(50, MILLISECONDS, future))
+        assertThatThrownBy(() -> WaitForAsyncUtils.waitFor(TIME_TO_WAIT, MILLISECONDS, future))
                 .isExactlyInstanceOf(CancellationException.class);
     }
 
@@ -236,7 +238,7 @@ public class WaitForAsyncUtilsTest {
     @Test
     public void waitFor_with_booleanCallable_with_sleep() throws Exception {
         WaitForAsyncUtils.waitFor(250, MILLISECONDS, () -> {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
             return true;
         });
     }
@@ -261,7 +263,7 @@ public class WaitForAsyncUtilsTest {
 
         // when:
         WaitForAsyncUtils.async(() -> {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
             property.set(true);
             return null;
         });
@@ -277,7 +279,7 @@ public class WaitForAsyncUtilsTest {
 
         // when:
         WaitForAsyncUtils.async(() -> {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
             property.set(false);
             return null;
         });
@@ -295,7 +297,7 @@ public class WaitForAsyncUtilsTest {
     }
 
     void waitForException(Future<?> f) throws InterruptedException {
-        Thread.sleep(50);
+        Thread.sleep(TIME_TO_WAIT);
         assertTrue(f.isDone());
     }
 
@@ -308,7 +310,7 @@ public class WaitForAsyncUtilsTest {
             }
         }
         try {
-            Thread.sleep(50);
+            Thread.sleep(TIME_TO_WAIT);
         }
         catch (Exception ignore) {
         }
