@@ -105,10 +105,11 @@ public class WaitForAsyncUtilsFxTest {
             WaitForAsyncUtils.checkException();
             fail("checkException didn't detect Exception");
         }
+        catch (UnsupportedOperationException e) {
+        // Une clause de catch séparée qui s'occupe des UnsupportedOperationException
+        }
         catch (Throwable e) {
-            if (!(e instanceof UnsupportedOperationException)) {
-                throw e;
-            }
+            throw e;
         }
         WaitForAsyncUtils.printException = true;
         WaitForAsyncUtils.waitFor(50, MILLISECONDS, future);
