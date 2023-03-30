@@ -38,11 +38,10 @@ public class PixelMatcherRgb extends PixelMatcherBase{
     }
 
     /**
-    * Prend deux objets Color et renvoie un booléen indiquant si les couleurs sont suffisamment proches pour 
-    être considérées comme correspondantes.
-    * @param color0 Première couleur
-    * @param color1 Seconde couleur
-    * @return Boolean, true si les couleurs sont considérées comme correspondantes.
+    Takes two Color objects and returns a boolean indicating whether the colors are close enough to be considered matching.
+    @param color0 First color
+    @param color1 Second color
+    @return Boolean, true if the colors are considered matching.
     */
     @Override
     public boolean matchColors(Color color0, Color color1) {
@@ -51,10 +50,10 @@ public class PixelMatcherRgb extends PixelMatcherBase{
     }
 
     /**
-    * Crée une image vide en fonction des dimensions de deux images données en entrée.
-    * @param image0 Première image
-    * @param image1 Seconde image
-    * @return Objet WritableImage
+    Creates an empty image based on the dimensions of two input images.
+    @param image0 First image
+    @param image1 Second image
+    @return WritableImage object
     */
     @Override
     public WritableImage createEmptyMatchImage(Image image0,
@@ -63,11 +62,10 @@ public class PixelMatcherRgb extends PixelMatcherBase{
     }
 
     /**
-    * Prend deux couleurs en entrée et renvoie une nouvelle couleur
-    qui est un mélange de gris et de blanc en fonction de la différence entre les deux couleurs.
-    * @param color0 Première couleur
-    * @param color1 Seconde couleur
-    * @return Objet Couleur
+    Takes two colors as input and returns a new color that is a blend of gray and white based on the difference between the two colors.
+    @param color0 First color
+    @param color1 Second color
+    @return Color object
     */
     @Override
     public Color createMatchColor(Color color0, Color color1) {
@@ -77,11 +75,10 @@ public class PixelMatcherRgb extends PixelMatcherBase{
     }
 
     /**
-    * Prend un niveau de gris et un facteur de mélange en entrée et renvoie
-    une valeur pondérée de gris qui est mélangée avec du blanc.
-    * @param gray Niveau de gris
-    * @param factor Facteur de mélange
-    * @return double, valeur pondérée de gris qui est mélangée avec du blanc
+    Takes a gray level and a blend factor as input and returns a weighted value of gray that is blended with white.
+    @param gray Gray level
+    @param factor Blend factor
+    @return double, weighted value of gray that is blended with white
     */
     private double blendToWhite(double gray, double factor) {
         return ((1.0 - factor) * gray) + factor;
